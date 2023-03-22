@@ -1,20 +1,11 @@
-import React,{useState} from 'react'
+import React,{useContext} from 'react'
 import Search from './Search'
-import BrandsData from '../brands.json'
 import Brand from './Brand'
+import MainContext from '../Context/MainContext'
 
 function Content() {
+    const {brands} = useContext(MainContext);
     
-    const brandsArray =[]
-    Object.keys(BrandsData).map(key=>{
-        brandsArray.push(BrandsData[key])
-    })
-    console.log(brandsArray);
-
-
-    const [brands, setbrands] = useState(brandsArray);
-    const [selectedBrands, setselectedBrands] = useState([]);
-
 
     return (
         <main className='content'>
@@ -22,8 +13,8 @@ function Content() {
                 <Search />
             </header>
             <section className='brands'>
-                {brands.map(brand=>(
-                    <Brand key={brand.old_id} brand={brand}/>
+                {brands.map((brand,index)=>(
+                    <Brand key={index} brand={brand}/>
 
                 ))}
 
