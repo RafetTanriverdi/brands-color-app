@@ -48,61 +48,101 @@ body {
   height: 100%;
   display: flex;
 }
-.content{
-  flex:1;
+
+.content {
+  flex: 1;
   overflow: auto;
   background: #f8f8f8;
-  .header{
+
+  .header {
     height: 60px;
     border-bottom: 1px solid #ccc;
     display: flex;
     position: sticky;
     top: 0;
-    .search{
-      flex:1;
+    background-color: #fff;
+    align-items: center;
+
+    .search {
+      flex: 1;
       position: relative;
-      .icon{
-        position:absolute;
-        top:0;
-        left:0;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 60px;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      input{
+
+      input {
         width: 100%;
         height: 100%;
         font-size: 16px;
         padding: 0 20px 0 50px;
       }
     }
+
+    .download {
+      padding-right: 25px;
+
+      .selected {
+        font-size: 14px;
+        font-weight: 500;
+        color: #999;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+
+
+        svg {
+          display: block;
+          font-size: 14px;
+          margin-right: 7px;
+          path{
+            stroke: #999;
+          }
+
+        }
+      }
+
+    }
   }
-  .brands{
+
+  .brands {
     padding: 25px;
-    .brand{
+
+    .brand {
       border: 1px solid #ddd;
       background: #fff;
       padding: 15px;
       margin-bottom: 10px;
-      &.selected{
+
+      &.selected {
         border-color: red;
-        .brand-colors{
-          span{
+
+        .brand-colors {
+          span {
             flex: 1;
             text-indent: 0;
           }
         }
       }
-      h5{
+
+      h5 {
         font-size: 18px;
         margin-bottom: 10px;
         cursor: pointer;
       }
-      &-colors{
+
+      &-colors {
         display: flex;
-        span{
+
+        span {
           cursor: pointer;
           background: var(--bgColor);
           height: 40px;
@@ -166,16 +206,18 @@ body {
     }
   }
 }
-.copied{
+
+.copied {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: var(--bgColor);
-  color:var(--textColor);
+  color: var(--textColor);
   padding: 15px 25px;
   border-radius: 4px;
   font-size: 16px;
 }
+
 .about-modal {
   max-width: 720px;
   background-color: white;
@@ -191,7 +233,10 @@ body {
     font-size: 25px;
     color: red;
     background: none;
-  &:hover{color: #000000;}
+
+    &:hover {
+      color: #000000;
+    }
 
   }
 
@@ -219,4 +264,3 @@ body {
   background-color: rgba(255, 255, 255, 0.832);
 
 }
-

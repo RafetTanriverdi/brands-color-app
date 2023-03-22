@@ -2,6 +2,7 @@ import React,{useContext} from 'react'
 import { BiSearch } from "react-icons/bi"
 import MainContext from '../Context/MainContext'
 
+
 function Search() {
     const {search,setsearch} = useContext(MainContext);
 
