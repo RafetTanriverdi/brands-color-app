@@ -21,6 +21,7 @@ code {
   text-decoration: none;
   box-sizing: border-box;
 
+
 }
 
 h1,
@@ -88,6 +89,44 @@ body {
 
     .download {
       padding-right: 25px;
+      display: flex;
+      align-items: center;
+
+      .actions {
+        display: flex;
+        margin-right: 15px;
+        cursor: pointer;
+
+        a,
+        button {
+          height: 30px;
+          width: 30px;
+          background: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          color: inherit;
+
+          svg {
+            height: 20px;
+            width: 20px;
+
+            path {
+              stroke: #999;
+            }
+
+          }
+        }
+
+        select {
+          height: 30px;
+          padding: 5px 10px;
+          border: 1px solid #eee;
+          cursor: pointer;
+          margin-left: 5px;
+        }
+      }
 
       .selected {
         font-size: 14px;
@@ -101,9 +140,10 @@ body {
 
         svg {
           display: block;
-          font-size: 14px;
+          font-size: 12px;
           margin-right: 7px;
-          path{
+
+          path {
             stroke: #999;
           }
 
