@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState,useContext} from 'react'
 import Modal from "react-modal"
 import { AiOutlineClose } from "react-icons/ai"
+import Copied from './Copied';
+import MainContext from '../Context/MainContext';
+
 
 
 
 function Sidebar() {
 
+    const {copied} = useContext(MainContext)
     const [modalIsOpen, setmodalIsOpen] = useState(false);
 
     const toggleModal = () => {
@@ -15,6 +19,7 @@ function Sidebar() {
 
     return (
         <>
+         {copied && <Copied color={copied} />}
             <aside className='sidebar'>
                 <div className="logo">
                     <a>Brand<b>Colors</b></a>

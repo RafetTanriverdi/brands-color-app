@@ -68,14 +68,14 @@ function Download() {
   return (
     <div className='download'>
       <div className="actions">
-        <a download={`brands.${changeCssMethod}`} href={downloadUrl}>
-          <BiDownload />
-        </a>
         <select onChange={(e) => setchangeCssMethod(e.target.value)}>
           <option value="css">CSS</option>
           <option value="scss">SCSS</option>
           <option value="less">LESS</option>
         </select>
+        <a download={`brands.${changeCssMethod}`} href={downloadUrl}>
+          <BiDownload />
+        </a>
         <button onClick={getLink}>
           <BiLink />
         </button>
