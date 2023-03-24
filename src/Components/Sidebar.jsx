@@ -19,7 +19,7 @@ function Sidebar() {
 
     return (
         <>
-         {copied && <Copied color={copied} />}
+     
             <aside className='sidebar'>
                 <div className="logo">
                     <a>Brand<b>Colors</b></a>

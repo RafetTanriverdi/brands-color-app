@@ -63,7 +63,16 @@ body {
     top: 0;
     background-color: #fff;
     align-items: center;
+    justify-content: space-between;
 
+    .back-btn{
+     background: none;
+     margin-left:15px ;
+     font-size: 30px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
     .search {
       flex: 1;
       position: relative;

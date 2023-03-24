@@ -5,6 +5,7 @@ import MainContext from '../Context/MainContext'
 import LazyLoad from 'react-lazyload'
 import Download from './Download'
 
+
 function Content() {
     const { brands,selectedBrands } = useContext(MainContext);
 
@@ -25,6 +26,7 @@ function Content() {
                 ))}
 
             </section>
+
         </main>
     )
 }

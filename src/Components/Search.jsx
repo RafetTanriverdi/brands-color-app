@@ -4,7 +4,7 @@ import MainContext from '../Context/MainContext'
 
 
 function Search() {
-    const {search,setsearch} = useContext(MainContext);
+    const {search,setSearch} = useContext(MainContext);
 
 
     return (
@@ -12,7 +12,7 @@ function Search() {
             <div className="icon">
                 <BiSearch />
             </div>
-            <input type="text" onChange={(e)=>setsearch(e.target.value)} placeholder='Search Brands' />
+            <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder='Search Brands' />
         </form>
     )
 }

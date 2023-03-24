@@ -2,22 +2,23 @@ import React, { useContext, useState, useEffect } from 'react'
 import { BiDownload, BiLink } from 'react-icons/bi'
 import MainContext from '../Context/MainContext'
 import { GrClose } from "react-icons/gr"
+import { Link } from 'react-router-dom'
+import ClipboardButton from 'react-clipboard.js'
+import { toast } from 'react-toastify'
 
 function Download() {
 
-  const { selectedBrands, setselectedBrands, brands } = useContext(MainContext);
+  const { selectedBrands, setSelectedBrands, brands,setCopied } = useContext(MainContext);
   const [downloadUrl, setdownloadUrl] = useState()
   const [changeCssMethod, setchangeCssMethod] = useState("css")
-  const getLink = () => {
-    prompt("Here's the URL to share", `http://localhost:3000/collection/${selectedBrands.join(",")}`)
-  }
+
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = ''
 
       switch (changeCssMethod) {
         case 'css':
-          output +=':root {\n'
+          output += ':root {\n'
           selectedBrands.map(slug => {
             let brand = brands.find(brand => brand.slug === slug)
             brand.colors.map((color, key) => {
@@ -65,6 +66,17 @@ function Download() {
     }
   }, [selectedBrands])
 
+  toast.success('🦄 Wow so easy!', {
+    position: "bottom-left",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+
   return (
     <div className='download'>
       <div className="actions">
@@ -76,13 +88,16 @@ function Download() {
         <a download={`brands.${changeCssMethod}`} href={downloadUrl}>
           <BiDownload />
         </a>
-        <button onClick={getLink}>
-          <BiLink />
-        </button>
+        <Link to={`/collection/${selectedBrands.join(",")}`}>
+          <ClipboardButton data-clipboard-text={`http://localhost:3000/collection/${selectedBrands.join(",")}`} onSuccess={()=>toast(`${selectedBrands.join(",")} Url Copied`)}  >
+
+            <BiLink />
+          </ClipboardButton>
+        </Link>
       </div>
 
 
-      <div className="selected" onClick={() => setselectedBrands([])}>
+      <div className="selected" onClick={() => setSelectedBrands([])}>
         <GrClose />
         {selectedBrands.length} Brand{selectedBrands.length > 1 && "s"} Collected
       </div>

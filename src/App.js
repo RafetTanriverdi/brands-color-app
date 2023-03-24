@@ -1,25 +1,23 @@
 import { MainProvider } from './Context/MainContext';
 import React from 'react';
 import Sidebar from './Components/Sidebar';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Collections from './Components/Collections';
 import Content from './Components/Content';
-import Collection from './Components/Collection';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
+
 
 function App() {
 
   return (
-    <MainProvider>
-      <Sidebar/>
-      
-      <BrowserRouter>
+    <BrowserRouter>
+      <MainProvider>
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Content />} />
-
-          <Route path="/collection/:slugs" element={<Collection />} />
-
+          <Route path="/collection/:slugs" element={<Collections/>} />
         </Routes>
-      </BrowserRouter>
-    </MainProvider>
+      </MainProvider>
+    </BrowserRouter>
   );
 }
 
