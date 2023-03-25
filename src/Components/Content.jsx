@@ -4,33 +4,30 @@ import Brand from './Brand'
 import MainContext from '../Context/MainContext'
 import LazyLoad from 'react-lazyload'
 import Download from './Download'
-import Loader from './Laoder'
+import Loader from './Loader'
 import { forceVisible } from 'react-lazyload';
 
 
 function Content() {
-    const { brands,selectedBrands } = useContext(MainContext);
+    const { brands, selectedBrands } = useContext(MainContext);
     useEffect(() => {
         forceVisible();
-      }, [brands])
+    }, [brands])
 
     return (
         <main className='content'>
             <header className="header">
                 <Search />
-                {selectedBrands.length>0 && <Download/>}
+                {selectedBrands.length > 0 && <Download />}
             </header>
             <section className='brands'>
-
                 {brands.map((brand, index) => (
-                    <LazyLoad key={brand.slug} once={true} placeholder={<Loader/>}  overflow={true}>
+                    <LazyLoad key={brand.slug} once={true} placeholder={<Loader />} overflow={true}>
                         <Brand key={index} brand={brand} />
                     </LazyLoad>
 
                 ))}
-
             </section>
-
         </main>
     )
 }

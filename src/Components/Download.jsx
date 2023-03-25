@@ -4,18 +4,17 @@ import MainContext from '../Context/MainContext'
 import { GrClose } from "react-icons/gr"
 import { Link } from 'react-router-dom'
 import ClipboardButton from 'react-clipboard.js'
-import { toast,ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 
 function Download() {
 
-  const { selectedBrands, setSelectedBrands, brands,setCopied } = useContext(MainContext);
+  const { selectedBrands, setSelectedBrands, brands, setCopied } = useContext(MainContext);
   const [downloadUrl, setdownloadUrl] = useState()
   const [changeCssMethod, setchangeCssMethod] = useState("css")
 
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = ''
-
       switch (changeCssMethod) {
         case 'css':
           output += ':root {\n'
@@ -37,7 +36,6 @@ function Download() {
 
               output += `\$${slug}-${key}:#${color}\n`
             })
-
           })
           break;
         case 'less':
@@ -47,17 +45,14 @@ function Download() {
 
               output += `@${slug}-${key}:#${color}\n`
             })
-
           })
           break;
       }
 
-
-
-
       const blob = new Blob([output])
       const url = URL.createObjectURL(blob)
       setdownloadUrl(url)
+
       return () => {
         URL.revokeObjectURL(url)
         setdownloadUrl('')
@@ -66,11 +61,9 @@ function Download() {
     }
   }, [selectedBrands])
 
-  const alert =()=>{
-
-    
+  const alert = () => {
     toast.success(`Url Copied`);
-}
+  }
 
   return (
     <div className='download'>
@@ -84,7 +77,7 @@ function Download() {
           <BiDownload />
         </a>
         <Link to={`/collection/${selectedBrands.join(",")}`}>
-          <ClipboardButton data-clipboard-text={`http://localhost:3000/collection/${selectedBrands.join(",")}`} onSuccess={()=>alert()}  >
+          <ClipboardButton data-clipboard-text={`http://localhost:3000/collection/${selectedBrands.join(",")}`} onSuccess={() => alert()}  >
 
             <BiLink />
           </ClipboardButton>

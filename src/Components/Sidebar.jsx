@@ -1,4 +1,4 @@
-import React, { useState,useContext} from 'react'
+import React, { useState } from 'react'
 import Modal from "react-modal"
 import { AiOutlineClose } from "react-icons/ai"
 
@@ -6,20 +6,14 @@ import { AiOutlineClose } from "react-icons/ai"
 
 
 function Sidebar() {
-
-    
-
     const [modalIsOpen, setmodalIsOpen] = useState(false);
 
     const toggleModal = () => {
         setmodalIsOpen(!modalIsOpen);
     }
 
-
     return (
         <>
-       
-     
             <aside className='sidebar'>
                 <div className="logo">
                     <a>Brand<b>Colors</b></a>
@@ -36,8 +30,7 @@ function Sidebar() {
                 </div>
             </aside>
             <div>
-
-                <Modal 
+                <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={toggleModal}
                     className="about-modal"

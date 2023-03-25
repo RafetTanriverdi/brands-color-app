@@ -12,7 +12,7 @@ import Copied from './Components/Copied';
 
 function App() {
 
-  const { brands, copied,setCopied } = useContext(MainContext)
+  const { brands, copied, setCopied } = useContext(MainContext)
   useEffect(() => {
     forceCheck();
   }, [brands])
@@ -29,11 +29,9 @@ function App() {
   }, [copied])
 
 
-
-  return (<>
-      
+  return (
+  <>
     <BrowserRouter>
-
       {copied && <Copied color={copied} />}
       <Sidebar />
       <Routes>

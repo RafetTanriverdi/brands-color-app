@@ -5,7 +5,7 @@ import Brand from './Brand'
 import Download from './Download';
 import LazyLoad from 'react-lazyload';
 import { GrFormPreviousLink } from 'react-icons/gr'
-import Loader from './Laoder';
+import Loader from './Loader';
 import { forceVisible } from 'react-lazyload';
 
 
@@ -37,17 +37,14 @@ function Collections() {
         <Link to="/" onClick={clearSelectedbutton}>
           <button className='back-btn'>
             < GrFormPreviousLink />
-
           </button>
         </Link>
         <h3>
           Your collection
         </h3>
-
         {selectedBrands.length === 0 ? history("/") : <Download />}
       </header>
       <section className='brands'>
-
         {selectedBrands.map(slug => {
           let brand = brands.find(brand => brand.slug === slug)
           return (
@@ -56,7 +53,6 @@ function Collections() {
             </LazyLoad>
           )
         })}
-
       </section>
     </main>
   )

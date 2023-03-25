@@ -65,14 +65,15 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    .back-btn{
-     background: none;
-     margin-left:15px ;
-     font-size: 30px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
+    .back-btn {
+      background: none;
+      margin-left: 15px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .search {
       flex: 1;
       position: relative;
@@ -203,6 +204,7 @@ body {
           color: var(--textColor);
           text-indent: -99999px;
           width: 70px;
+          padding: 0 3px;
 
         }
       }
@@ -215,6 +217,7 @@ body {
   min-width: 300px;
   border-right: 1px solid #ccc;
   padding: 25px;
+
 
   .logo {
     margin-bottom: 25px;
@@ -311,5 +314,36 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.832);
+
+}
+
+@media (max-width:762px) {
+  .sidebar {
+    display: none;
+  }
+
+  .download {
+    .actions {
+      margin-right: -40px;
+
+      
+      select {
+        display: none;
+
+      }
+      a {
+        display: none;
+      }
+    }
+  }
+
+  .brand-colors {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      flex: 1;
+      text-indent: 0;
+    }
+  }
 
 }
