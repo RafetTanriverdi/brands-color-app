@@ -1,6 +1,6 @@
 # Brand Colors
 
-[!Untitled](./src/brandcolors.gif).
+![Untitled](./src/brandcolors.gif).
 
 ## Available Scripts
 
