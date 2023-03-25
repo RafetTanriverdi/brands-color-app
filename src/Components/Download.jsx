@@ -4,7 +4,7 @@ import MainContext from '../Context/MainContext'
 import { GrClose } from "react-icons/gr"
 import { Link } from 'react-router-dom'
 import ClipboardButton from 'react-clipboard.js'
-import { toast } from 'react-toastify'
+import { toast,ToastContainer } from 'react-toastify'
 
 function Download() {
 
@@ -66,16 +66,11 @@ function Download() {
     }
   }, [selectedBrands])
 
-  toast.success('🦄 Wow so easy!', {
-    position: "bottom-left",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-    });
+  const alert =()=>{
+
+    
+    toast.success(`Url Copied`);
+}
 
   return (
     <div className='download'>
@@ -89,7 +84,7 @@ function Download() {
           <BiDownload />
         </a>
         <Link to={`/collection/${selectedBrands.join(",")}`}>
-          <ClipboardButton data-clipboard-text={`http://localhost:3000/collection/${selectedBrands.join(",")}`} onSuccess={()=>toast(`${selectedBrands.join(",")} Url Copied`)}  >
+          <ClipboardButton data-clipboard-text={`http://localhost:3000/collection/${selectedBrands.join(",")}`} onSuccess={()=>alert()}  >
 
             <BiLink />
           </ClipboardButton>
@@ -101,6 +96,7 @@ function Download() {
         <GrClose />
         {selectedBrands.length} Brand{selectedBrands.length > 1 && "s"} Collected
       </div>
+
     </div>
   )
 }
