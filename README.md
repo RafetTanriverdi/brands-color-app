@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Brand Colors
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[!Untitled](./src/brandcolors.gif).
 
 ## Available Scripts
 
